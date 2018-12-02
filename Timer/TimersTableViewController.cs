@@ -17,7 +17,9 @@ namespace Timer
         {
             base.ViewDidLoad();
 
-            this.TableView.Source = new TimersTableViewSource();
+            NavigationController.NavigationBar.PrefersLargeTitles = true;
+
+            TableView.Source = new TimersTableViewSource(this);
         }
     }
 }

@@ -9,11 +9,16 @@ namespace Timer
 {
     internal class TimersTableViewSource : UITableViewSource
     {
+        private readonly UINavigationController navigationController;
+
         List<float> timers;
+        private TimersTableViewController timersTableViewController;
         const string TimerCellIdentifier = "TimerCell";
 
-        public TimersTableViewSource()
+        public TimersTableViewSource(TimersTableViewController timersTableViewController)
         {
+            this.timersTableViewController = timersTableViewController;
+
             timers = new List<float>() { 0.3f, 0.25f, 2.0f };
         }
 
@@ -38,6 +43,11 @@ namespace Timer
             cell.DetailTextLabel.Text = $"{time} mn";
 
             return cell;
+        }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            timersTableViewController.PerformSegue("showPlayerSegue", null);
         }
     }
 }
