@@ -9,8 +9,6 @@ namespace Timer
 {
     internal class TimersTableViewSource : UITableViewSource
     {
-        private readonly UINavigationController navigationController;
-
         List<float> timers;
         private TimersTableViewController timersTableViewController;
         const string TimerCellIdentifier = "TimerCell";

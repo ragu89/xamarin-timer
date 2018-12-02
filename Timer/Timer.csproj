@@ -105,15 +105,15 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="PlayerViewController.cs" />
-    <Compile Include="PlayerViewController.designer.cs">
-      <DependentUpon>PlayerViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="TimersTableViewController.cs" />
     <Compile Include="TimersTableViewController.designer.cs">
       <DependentUpon>TimersTableViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="TimersTableViewSource.cs" />
+    <Compile Include="TimerDetailViewController.cs" />
+    <Compile Include="TimerDetailViewController.designer.cs">
+      <DependentUpon>TimerDetailViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

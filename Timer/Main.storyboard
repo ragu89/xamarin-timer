@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="84" y="109"/>
         </scene>
-        <!--Player-->
+        <!--Timer detail-->
         <scene sceneID="nap-8B-pBe">
             <objects>
-                <viewController title="Player" id="kdr-fw-I9Q" customClass="PlayerViewController" sceneMemberID="viewController">
+                <viewController title="Timer detail" id="kdr-fw-I9Q" customClass="TimerDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iar-Fk-p0S"/>
                         <viewControllerLayoutGuide type="bottom" id="G4O-E3-fXB"/>
