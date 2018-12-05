@@ -3,6 +3,6 @@
     public enum PageEnum
     {
         Timers,
-        Player
+        TimerDetail
     }
 }

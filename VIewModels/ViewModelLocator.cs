@@ -16,10 +16,11 @@ namespace VIewModels
 
         void RegisterViewModels(INavigationService navigationService)
         {
-            Container.Default.Register<ITimersViewModel>((vm) => new TimersViewModel(), true);
+            Container.Default.Register<ITimersViewModel>((vm) => new TimersViewModel(navigationService), true);
             Container.Default.Register<ITimerDetailViewModel>((vm) => new TimerDetailViewModel(), true);
         }
 
-        public ITimerDetailViewModel Page1ViewModel => Container.Default.Get<ITimerDetailViewModel>();
+        public ITimersViewModel TimersViewModel => Container.Default.Get<ITimersViewModel>();
+        public ITimerDetailViewModel TimerDetailViewModel => Container.Default.Get<ITimerDetailViewModel>();
     }
 }

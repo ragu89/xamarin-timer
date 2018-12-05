@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Foundation;
 using UIKit;
+using VIewModels.Interfaces;
 
 namespace Timer
 {
@@ -19,6 +20,8 @@ namespace Timer
 
             timers = new List<float>() { 0.3f, 0.25f, 2.0f };
         }
+
+        ITimersViewModel ViewModel => AppDelegate.Locator.TimersViewModel;
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
@@ -45,7 +48,7 @@ namespace Timer
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            timersTableViewController.PerformSegue("showPlayerSegue", null);
+            ViewModel.SelectTimerCommand.Execute(null);
         }
     }
 }

@@ -114,6 +114,18 @@
     <Compile Include="TimerDetailViewController.designer.cs">
       <DependentUpon>TimerDetailViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\NavigationServiceIOS.cs" />
+    <Compile Include="Utils\Extensions\UIViewControllerExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceContracts\ServiceContracts.csproj">
+      <Project>{FC07BAFA-65AE-4F9C-B993-909305718EAB}</Project>
+      <Name>ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VIewModels\VIewModels.csproj">
+      <Project>{4B203D19-1486-4A67-AF05-5DF8CD1D3EF7}</Project>
+      <Name>VIewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
