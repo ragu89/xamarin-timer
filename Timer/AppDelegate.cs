@@ -2,6 +2,7 @@
 using Mvvmicro;
 using Navigator.Services;
 using ServiceContracts.Interfaces;
+using ServiceContracts.Service;
 using UIKit;
 using VIewModels;
 
@@ -29,6 +30,7 @@ namespace Timer
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             Container.Default.Register<INavigationService>((n) => new NavigationServiceIOS(this), isInstance: true);
+            Container.Default.Register<IContextService>((n) => new ContextService(), isInstance: true);
 
             Locator = new ViewModelLocator();
 

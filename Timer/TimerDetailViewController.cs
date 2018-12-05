@@ -4,6 +4,7 @@ using System;
 
 using Foundation;
 using UIKit;
+using VIewModels.Interfaces;
 
 namespace Timer
 {
@@ -12,5 +13,17 @@ namespace Timer
 		public TimerDetailViewController (IntPtr handle) : base (handle)
 		{
 		}
-	}
+
+        ITimerDetailViewModel ViewModel => AppDelegate.Locator.TimerDetailViewModel;
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            ViewModel.ReloadContext();
+
+            nameLabel.Text = ViewModel.CurrentTimer.Name;
+            durationLabel.Text = ViewModel.CurrentTimer.Duration.ToString();
+        }
+    }
 }

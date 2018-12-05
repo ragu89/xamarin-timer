@@ -3,6 +3,9 @@
 using System;
 using System.Collections.Generic;
 using Foundation;
+using Mvvmicro;
+using ServiceContracts.Interfaces;
+using ServiceContracts.Model;
 using UIKit;
 using VIewModels.Interfaces;
 
@@ -22,6 +25,7 @@ namespace Timer
         }
 
         ITimersViewModel ViewModel => AppDelegate.Locator.TimersViewModel;
+        IContextService ContextService => Container.Default.Get<IContextService>();
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
@@ -48,6 +52,9 @@ namespace Timer
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
+            //Is it really there to set the context ? Not in the VM ?
+            ContextService.TimerSelected = new MyTimer() { Name = $"Row {indexPath.Row}", Duration = new TimeSpan(0,0,DateTime.Now.Second) };
+
             ViewModel.SelectTimerCommand.Execute(null);
         }
     }

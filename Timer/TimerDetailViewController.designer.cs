@@ -12,9 +12,23 @@ namespace Timer
 	[Register ("TimerDetailViewController")]
 	partial class TimerDetailViewController
 	{
+		[Outlet]
+		UIKit.UILabel durationLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel nameLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (nameLabel != null) {
+				nameLabel.Dispose ();
+				nameLabel = null;
+			}
+
+			if (durationLabel != null) {
+				durationLabel.Dispose ();
+				durationLabel = null;
+			}
 		}
 	}
 }

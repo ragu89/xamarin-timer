@@ -10,14 +10,15 @@ namespace VIewModels
         public ViewModelLocator()
         {
             var navigationService = Container.Default.Get<INavigationService>();
+            var contextService = Container.Default.Get<IContextService>();
 
-            RegisterViewModels(navigationService);
+            RegisterViewModels(navigationService, contextService);
         }
 
-        void RegisterViewModels(INavigationService navigationService)
+        void RegisterViewModels(INavigationService navigationService, IContextService contextService)
         {
             Container.Default.Register<ITimersViewModel>((vm) => new TimersViewModel(navigationService), true);
-            Container.Default.Register<ITimerDetailViewModel>((vm) => new TimerDetailViewModel(), true);
+            Container.Default.Register<ITimerDetailViewModel>((vm) => new TimerDetailViewModel(contextService), true);
         }
 
         public ITimersViewModel TimersViewModel => Container.Default.Get<ITimersViewModel>();
