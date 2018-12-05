@@ -17,9 +17,9 @@ namespace VIewModels
         void RegisterViewModels(INavigationService navigationService)
         {
             Container.Default.Register<ITimersViewModel>((vm) => new TimersViewModel(), true);
-            Container.Default.Register<IPlayerViewModel>((vm) => new PlayerViewModel(), true);
+            Container.Default.Register<ITimerDetailViewModel>((vm) => new TimerDetailViewModel(), true);
         }
 
-        public IPlayerViewModel Page1ViewModel => Container.Default.Get<IPlayerViewModel>();
+        public ITimerDetailViewModel Page1ViewModel => Container.Default.Get<ITimerDetailViewModel>();
     }
 }

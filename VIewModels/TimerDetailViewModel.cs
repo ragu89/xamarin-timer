@@ -4,9 +4,9 @@ using VIewModels.Interfaces;
 
 namespace VIewModels
 {
-    public class PlayerViewModel : Observable, IPlayerViewModel
+    public class TimerDetailViewModel : Observable, ITimerDetailViewModel
     {
-        public PlayerViewModel()
+        public TimerDetailViewModel()
         {
         }
     }
