@@ -29,7 +29,7 @@ namespace Timer
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return timers.Count;
+            return ViewModel.Timers.Count;
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -37,15 +37,15 @@ namespace Timer
             UITableViewCell cell = tableView.DequeueReusableCell(TimerCellIdentifier);
 
             string cellTitle = $"Phase {indexPath.Row}";
-            float time = timers[indexPath.Row];
+            MyTimer timer = ViewModel.Timers[indexPath.Row];
 
             if (cell == null)
             {
                 cell = new UITableViewCell(UITableViewCellStyle.Subtitle, TimerCellIdentifier);
             }
 
-            cell.TextLabel.Text = cellTitle;
-            cell.DetailTextLabel.Text = $"{time} mn";
+            cell.TextLabel.Text = timer.Name;
+            cell.DetailTextLabel.Text = $"{timer.Duration} mn";
 
             return cell;
         }
@@ -53,7 +53,7 @@ namespace Timer
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             //Is it really there to set the context ? Not in the VM ?
-            ContextService.TimerSelected = new MyTimer() { Name = $"Row {indexPath.Row}", Duration = new TimeSpan(0,0,DateTime.Now.Second) };
+            ContextService.TimerSelected = ViewModel.Timers[indexPath.Row];
 
             ViewModel.SelectTimerCommand.Execute(null);
         }
